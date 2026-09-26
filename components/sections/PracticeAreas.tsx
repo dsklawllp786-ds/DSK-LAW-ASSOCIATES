@@ -1,6 +1,7 @@
 import { CheckCircle2, Landmark, Scale } from "lucide-react";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { FadeIn, SectionHeading } from "@/components/ui/motion";
+import { sectionClass } from "@/lib/section-styles";
 import { practiceAreas } from "@/lib/site-config";
 
 const iconMap = {
@@ -10,7 +11,7 @@ const iconMap = {
 
 export function PracticeAreas() {
   return (
-    <section id="practice-areas" className="bg-muted/40 py-20 md:py-28">
+    <section id="practice-areas" className={`bg-muted/40 ${sectionClass}`}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="Practice Areas"

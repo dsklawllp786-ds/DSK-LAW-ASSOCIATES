@@ -1,9 +1,10 @@
 import { FadeIn, SectionHeading } from "@/components/ui/motion";
+import { sectionClass } from "@/lib/section-styles";
 import { services } from "@/lib/site-config";
 
 export function Services() {
   return (
-    <section id="services" className="py-20 md:py-28">
+    <section id="services" className={sectionClass}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="Our Services"

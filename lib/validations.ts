@@ -11,15 +11,10 @@ export const consultationSchema = z.object({
     .max(15, "Phone number is too long")
     .regex(/^[+]?[\d\s-]+$/, "Please enter a valid phone number"),
   email: z.string().email("Please enter a valid email").optional().or(z.literal("")),
-  practiceArea: z.enum(["criminal", "civil"], {
-    required_error: "Please select a practice area",
-  }),
+  practiceArea: z.enum(["criminal", "civil"]).optional(),
   preferredDate: z.string().optional(),
   preferredTime: z.string().optional(),
-  message: z
-    .string()
-    .min(10, "Please describe your legal matter (at least 10 characters)")
-    .max(2000, "Message is too long"),
+  message: z.string().max(2000, "Message is too long").optional().or(z.literal("")),
 });
 
 export const contactSchema = z.object({

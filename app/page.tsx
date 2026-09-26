@@ -22,9 +22,9 @@ export default function HomePage() {
         <Services />
         <Team />
         <Testimonials />
-        <FAQs />
         <ConsultationForm />
         <Contact />
+        <FAQs />
       </main>
       <Footer />
       <WhatsAppFAB />

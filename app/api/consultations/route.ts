@@ -16,16 +16,18 @@ export async function POST(request: Request) {
     }
 
     const data = parsed.data;
+    const practiceArea = data.practiceArea ?? "unspecified";
+    const message = data.message?.trim() || "No additional details provided.";
 
     const consultation = await prisma.consultation.create({
       data: {
         fullName: data.fullName,
         phone: data.phone,
         email: data.email || null,
-        practiceArea: data.practiceArea,
+        practiceArea,
         preferredDate: data.preferredDate ? new Date(data.preferredDate) : null,
         preferredTime: data.preferredTime || null,
-        message: data.message,
+        message,
       },
     });
 
@@ -33,10 +35,10 @@ export async function POST(request: Request) {
       fullName: data.fullName,
       phone: data.phone,
       email: data.email,
-      practiceArea: data.practiceArea,
+      practiceArea,
       preferredDate: data.preferredDate,
       preferredTime: data.preferredTime,
-      message: data.message,
+      message,
     });
 
     return NextResponse.json({ success: true, id: consultation.id });

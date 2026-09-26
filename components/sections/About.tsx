@@ -1,10 +1,11 @@
-import Image from "next/image";
+import { OwnerPortrait } from "@/components/ui/owner-portrait";
 import { FadeIn, SectionHeading } from "@/components/ui/motion";
+import { sectionClass } from "@/lib/section-styles";
 import { siteConfig, values } from "@/lib/site-config";
 
 export function About() {
   return (
-    <section id="about" className="py-20 md:py-28">
+    <section id="about" className={sectionClass}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="About Us"
@@ -12,19 +13,16 @@ export function About() {
           description="DSK Law Associates is dedicated to providing clear, effective legal counsel in criminal and civil matters across Prayagraj and surrounding areas."
         />
 
-        <div className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+        <div className="grid items-center gap-8 lg:grid-cols-2 lg:gap-10">
           <FadeIn direction="right">
-            <div className="relative mx-auto w-full max-w-sm sm:max-w-md">
+            <div className="relative mx-auto w-full max-w-xs sm:max-w-sm">
               <div className="absolute -left-3 -top-3 h-full w-full rounded-2xl border-2 border-gold/30" />
-              <div className="relative overflow-hidden rounded-2xl border border-gold/20 bg-muted/20 shadow-card">
-                <Image
-                  src={siteConfig.ownerImage}
-                  alt={siteConfig.owner}
-                  width={400}
-                  height={400}
-                  className="aspect-square w-full object-contain"
-                />
-              </div>
+              <OwnerPortrait
+                src={siteConfig.ownerImage}
+                alt={siteConfig.owner}
+                priority
+                className="relative"
+              />
               <p className="mt-3 text-center text-sm text-muted-foreground">
                 {siteConfig.owner}
               </p>
@@ -32,7 +30,7 @@ export function About() {
           </FadeIn>
 
           <FadeIn direction="left" delay={0.15}>
-            <div className="space-y-6">
+            <div className="space-y-5">
               <p className="text-lg leading-relaxed text-muted-foreground">
                 Founded and led by <strong className="text-foreground">{siteConfig.owner}</strong>,
                 DSK Law Associates brings years of courtroom experience and a client-first approach
@@ -45,7 +43,7 @@ export function About() {
                 possible outcome at every stage of your case.
               </p>
 
-              <div className="grid gap-4 sm:grid-cols-3">
+              <div className="grid gap-3 sm:grid-cols-3">
                 {values.map((value) => (
                   <div
                     key={value.title}

@@ -34,6 +34,7 @@ export function formatPhoneTel(phone: string): string {
 const practiceAreaLabels: Record<string, string> = {
   criminal: "Criminal Law",
   civil: "Civil Law",
+  unspecified: "Not specified",
 };
 
 export function formatPracticeArea(area: string): string {

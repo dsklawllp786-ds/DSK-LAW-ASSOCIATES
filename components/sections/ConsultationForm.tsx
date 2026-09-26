@@ -17,6 +17,7 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { Textarea } from "@/components/ui/textarea";
+import { sectionClass } from "@/lib/section-styles";
 import { siteConfig } from "@/lib/site-config";
 import { consultationSchema, type ConsultationInput } from "@/lib/validations";
 
@@ -60,15 +61,15 @@ export function ConsultationForm() {
   };
 
   return (
-    <section id="consultation" className="py-20 md:py-28">
+    <section id="consultation" className={sectionClass}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="Book a Consultation"
           title="Schedule Your Legal Consultation"
-          description="Fill out the form below and our team will contact you promptly during office hours."
+          description="Optional request — name and phone are enough for a callback. Add details only if you want to."
         />
 
-        <div className="grid gap-8 lg:grid-cols-5 lg:gap-12">
+        <div className="grid gap-6 lg:grid-cols-5 lg:gap-8">
           <FadeIn className="lg:col-span-3">
             <Card>
               <CardHeader>
@@ -115,14 +116,14 @@ export function ConsultationForm() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label>Practice Area *</Label>
+                      <Label>Practice area (optional)</Label>
                       <Controller
                         name="practiceArea"
                         control={control}
                         render={({ field }) => (
                           <Select onValueChange={field.onChange} value={field.value}>
                             <SelectTrigger>
-                              <SelectValue placeholder="Select practice area" />
+                              <SelectValue placeholder="Criminal or civil — if known" />
                             </SelectTrigger>
                             <SelectContent>
                               <SelectItem value="criminal">Criminal Law</SelectItem>
@@ -148,11 +149,11 @@ export function ConsultationForm() {
                     </div>
 
                     <div className="space-y-2">
-                      <Label htmlFor="message">Describe Your Legal Matter *</Label>
+                      <Label htmlFor="message">Brief note (optional)</Label>
                       <Textarea
                         id="message"
-                        placeholder="Briefly describe your legal matter..."
-                        rows={5}
+                        placeholder="Anything you would like us to know before we call..."
+                        rows={4}
                         {...register("message")}
                       />
                       {errors.message && (

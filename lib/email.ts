@@ -22,7 +22,7 @@ export async function sendConsultationEmail(data: {
     <p><strong>Name:</strong> ${data.fullName}</p>
     <p><strong>Phone:</strong> ${data.phone}</p>
     <p><strong>Email:</strong> ${data.email || "Not provided"}</p>
-    <p><strong>Practice Area:</strong> ${data.practiceArea}</p>
+    <p><strong>Practice Area:</strong> ${data.practiceArea === "unspecified" ? "Not specified" : data.practiceArea}</p>
     <p><strong>Preferred Date:</strong> ${data.preferredDate || "Not specified"}</p>
     <p><strong>Preferred Time:</strong> ${data.preferredTime || "Not specified"}</p>
     <p><strong>Message:</strong></p>

@@ -1,7 +1,9 @@
-import Image from "next/image";
 import { User } from "lucide-react";
+import Image from "next/image";
 import { Card, CardContent } from "@/components/ui/card";
 import { FadeIn, SectionHeading } from "@/components/ui/motion";
+import { OwnerPortrait } from "@/components/ui/owner-portrait";
+import { sectionClass } from "@/lib/section-styles";
 import { teamMembers, siteConfig } from "@/lib/site-config";
 
 export function Team() {
@@ -9,7 +11,7 @@ export function Team() {
   const others = teamMembers.filter((m) => !m.featured);
 
   return (
-    <section id="team" className="bg-muted/40 py-20 md:py-28">
+    <section id="team" className={`bg-muted/40 ${sectionClass}`}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="Our Team"
@@ -18,18 +20,17 @@ export function Team() {
         />
 
         {featured && (
-          <FadeIn className="mx-auto mb-10 max-w-2xl">
+          <FadeIn className="mx-auto mb-8 max-w-2xl">
             <Card className="overflow-hidden border-gold/30 shadow-md">
               <CardContent className="flex flex-col items-center gap-6 p-6 sm:flex-row sm:items-start sm:p-8">
-                <div className="shrink-0 overflow-hidden rounded-xl border-2 border-gold/30 shadow-sm">
-                  <Image
-                    src={featured.image ?? siteConfig.ownerImage}
-                    alt={featured.name}
-                    width={140}
-                    height={175}
-                    className="h-[175px] w-[140px] object-cover object-top"
-                  />
-                </div>
+                <OwnerPortrait
+                  src={featured.image ?? siteConfig.ownerImage}
+                  alt={featured.name}
+                  width={160}
+                  height={200}
+                  className="w-[140px] shrink-0 border-2 border-gold/30 sm:w-[160px]"
+                  sizes="160px"
+                />
                 <div className="flex-1 text-center sm:text-left">
                   <span className="inline-flex rounded-full bg-gold/10 px-3 py-0.5 text-xs font-semibold uppercase tracking-wider text-gold">
                     Founder
@@ -45,7 +46,7 @@ export function Team() {
           </FadeIn>
         )}
 
-        <div className="mx-auto grid max-w-2xl gap-6 sm:grid-cols-2">
+        <div className="mx-auto grid max-w-2xl gap-5 sm:grid-cols-2">
           {others.map((member, index) => (
             <FadeIn key={member.name} delay={index * 0.1}>
               <Card className="h-full transition-all hover:border-gold/30 hover:shadow-md">
@@ -57,7 +58,7 @@ export function Team() {
                         alt={member.name}
                         width={56}
                         height={56}
-                        className="h-14 w-14 rounded-full object-cover"
+                        className="h-14 w-14 rounded-full object-cover object-top"
                       />
                     ) : (
                       <User className="h-6 w-6 text-gold" />

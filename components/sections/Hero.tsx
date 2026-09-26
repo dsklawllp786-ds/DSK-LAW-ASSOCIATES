@@ -18,7 +18,7 @@ export function Hero() {
   return (
     <section
       id="home"
-      className="relative min-h-screen overflow-hidden pt-24 md:pt-28"
+      className="relative overflow-hidden pt-24 pb-12 md:pt-28 md:pb-14"
     >
       <div className="absolute inset-0 -z-10">
         <div className="absolute inset-0 bg-gradient-to-br from-ivory via-background to-background dark:from-navy-dark dark:via-background dark:to-background" />
@@ -32,7 +32,7 @@ export function Hero() {
         />
       </div>
 
-      <div className="container mx-auto flex min-h-[calc(100vh-6rem)] flex-col items-center gap-10 px-4 pb-16 md:px-6 lg:flex-row lg:items-center lg:gap-12">
+      <div className="container mx-auto flex flex-col items-center gap-8 px-4 md:px-6 lg:flex-row lg:items-center lg:gap-10">
         <div className="flex-1 space-y-6 text-center lg:max-w-xl lg:text-left xl:max-w-2xl">
           <FadeIn>
             <p className="inline-flex items-center rounded-full border border-gold/30 bg-gold/10 px-4 py-1.5 text-sm font-medium text-gold">

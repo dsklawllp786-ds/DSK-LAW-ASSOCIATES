@@ -5,11 +5,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { FadeIn, SectionHeading } from "@/components/ui/motion";
+import { sectionClass } from "@/lib/section-styles";
 import { faqs } from "@/lib/site-config";
 
 export function FAQs() {
   return (
-    <section id="faqs" className="bg-muted/40 py-20 md:py-28">
+    <section id="faqs" className={sectionClass}>
       <div className="container mx-auto px-4 md:px-6">
         <SectionHeading
           label="FAQs"

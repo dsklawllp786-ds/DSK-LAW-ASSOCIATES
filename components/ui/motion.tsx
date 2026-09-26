@@ -54,7 +54,7 @@ export function SectionHeading({
   centered = true,
 }: SectionHeadingProps) {
   return (
-    <FadeIn className={cn("mb-12 md:mb-16", centered && "text-center")}>
+    <FadeIn className={cn("mb-8 md:mb-10", centered && "text-center")}>
       {label && (
         <p className="mb-3 text-sm font-semibold uppercase tracking-widest text-gold">
           {label}
